@@ -1,0 +1,8 @@
+<h1><%= @type.name %></h1>
+
+<ul>
+    <li><%= link_to "Edit", edit_type_path(@type) %></li>
+    <li><%= link_to "Destroy", type_path(@type), method: :delete,
+        data: { confirm: "Are you sure?" } %>
+    </li>
+</ul>

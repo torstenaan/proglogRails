@@ -1,0 +1,14 @@
+<h1><%= @activity.date %></h1>
+
+<%= @activity.subjects.each { |s| } %>
+<p><%= @activity.type['name'] %></p>
+<p><%= @activity.link %></p>
+<p><%= @activity.duration %></p>
+<p><%= @activity.comment %></p>
+
+<ul>
+    <li><%= link_to "Edit", edit_activity_path(@activity) %></li>
+    <li><%= link_to "Destroy", activity_path(@activity), method: :delete,
+        data: { confirm: "Are you sure?" } %>
+    </li>
+</ul>

@@ -1,0 +1,54 @@
+<%= form_with model: activity do |form| %>
+  <div>
+    <%= form.label :date %><br>
+    <%= form.date_field :date %>
+    <% activity.errors.full_messages_for(:date).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :type %><br>
+    <%= form.select :type_id, Type.all.collect { |t| [ t.name, t.id] } %>
+    <% activity.errors.full_messages_for(:type_id).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :subjects %><br>
+    <%= select_tag :subjects_id, options_for_select(Subject.all.collect { |s| [s.name, s.id] }, 
+      activity.subjects.collect { |s| s.id}), {:multiple=>true}%>
+    <% activity.errors.full_messages_for(:subjects).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :link %><br>
+    <%= form.text_field :link %>
+    <% activity.errors.full_messages_for(:link).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :duration %><br>
+    <%= form.number_field :duration %>
+    <% activity.errors.full_messages_for(:duration).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :commment %><br>
+    <%= form.text_area :comment %>
+    <% activity.errors.full_messages_for(:commment).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
