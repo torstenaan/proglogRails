@@ -1,7 +1,11 @@
 <h1><%= @activity.date %></h1>
 
-<%= @activity.subjects.each { |s| } %>
-<p><%= @activity.type['name'] %></p>
+<% @activity.subjects.each do |s| %>
+	<p><%= s.name %> </p>
+
+<% end %>
+
+<p><%= @activity.type.name %></p>
 <p><%= @activity.link %></p>
 <p><%= @activity.duration %></p>
 <p><%= @activity.comment %></p>

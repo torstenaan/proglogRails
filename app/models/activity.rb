@@ -6,4 +6,15 @@ class Activity < ApplicationRecord
     validates :link, presence: true
     validates :duration, presence: true, numericality: {only_integer: true }
     validates :comment, presence: true
+
+    def print_subjects()
+        s = ""
+        subjects.each do |subject|
+            s += "#{subject.name}, "
+        end
+        if(s != "")
+            s = s[0..-3]
+        end
+        return s
+    end
 end

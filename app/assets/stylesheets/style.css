@@ -1,0 +1,43 @@
+.container {
+    width:1000px;
+    margin:auo;
+    margin-top:10px;
+}
+
+.form-container {
+    width:500px;
+}
+
+header {
+    background: burlywood;
+}
+
+header::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+nav {
+    float: center;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin-left: 70px;
+    padding-top: 35px;
+}
+
+nav a {
+    color: #444;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+

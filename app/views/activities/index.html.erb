@@ -1,13 +1,13 @@
-><h1>Activities</h1>
+<h1>Activities</h1>
 
 <ul>
   <% @activities.each do |activity| %>
     <li>
         <%= link_to activity.date, activity %>
+        <%= activity.type.name %>
+        <%= activity.print_subjects %>
+        <%= activity.duration %>
+        <%= activity.comment %>
     </li>
   <% end %>
-
-  <%= link_to "New Activity", new_activity_path%>
-  <%= link_to "New Type", new_type_path%>
-  <%= link_to "New Subject", new_subject_path%>
 </ul>

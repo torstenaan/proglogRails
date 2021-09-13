@@ -15,8 +15,8 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new(activity_params)
     
     if @activity.save
-      #@subjects = Subject.find([:subject_ids])
-      #@activity.subjects << @subjects
+      @subjects = Subject.where(:id => params[:subjects_id])
+      @activity.subjects << @subjects 
       redirect_to @activity
     else
       render :new
@@ -31,6 +31,9 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
 
     if @activity.update(activity_params)
+      @subjects = Subject.where(:id => params[:subjects_id])
+      @activity.subjects.clear
+      @activity.subjects << @subjects 
       redirect_to @activity
     else
       render :edit
